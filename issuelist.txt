@@ -17,7 +17,7 @@
 # custom error msg
 # fix drown down format
 # get copy of registration
-# 
+#
 
 ##########################################
 Terminal setup
@@ -71,6 +71,25 @@ git add .
 git commit -m "Admin setup"
 git remote add origin https://github.com/spyglassventures/sgv-django.git
 git push origin master
+
+# force upload
+git push --force origin master
+
+# Create feature Branch (optional)
+git checkout -b new_fields
+
+# see which brach you are in
+git branch
+
+
+
+# Errors on Heroku:
+heroku logs --tail -a sgv-join
+
+# see which packages are installed
+cat requirements.txt
+pip list # gives all installed with versions
+
 
 
 # Deploy: Option 1: Heroku
