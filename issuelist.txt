@@ -94,7 +94,7 @@ pip list # gives all installed with versions
 
 # Deploy: Option 1: Heroku
 you need procfile
-you need requirements.txt
+you need requirements.txt (list of all packages installed with right version number)
 you need to fix static files, also use right load in html
 
 
