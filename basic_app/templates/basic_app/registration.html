@@ -2,26 +2,60 @@
 
 {% load static %}
 
+{% load crispy_forms_tags %}
+
 {% block body_block %}
+
+{% load widget_tweaks %}
+
+
+
+
   <div class="container">
+
+
+
+
     <div class="jumbotron">
+
       {% if registered %}
         <h1>Vielen Dank für die Übermittlung Ihrer Mitarbeiterdaten.</h1>
       {% else %}
-        <h1>Als neuer Mitarbeiter registrieren</h1>
-        <h3>Bitte füllen Sie alle Felder aus.</h3>
+
+
 
         <form enctype="multipart/form-data" method="POST">
-          {% csrf_token %}
-          {{ user_form.as_p }}
-          {{ profile_form.as_p }}
-          <input type="submit" name="" value="Register">
+
+              <div class="form-group">
+                <h3>Bitte füllen Sie alle Felder aus um sich als Mitarbeiter zu registrieren.</h3>
+                  <div class="content container">
+                    {% csrf_token %}
+                  </div>
+
+                    <div class="form-group">  <!-- allign first fiels -->
+                      <!--  <div class="post-form">  -->
+
+                          {{ user_form.as_p }}
+                          {{ profile_form.as_p }}
+                          {{ form.errors }}
+                          {{ form.post }}
+                            <button type="submit" class="btn btn-primary mb-2">Personaldaten übertragen</button>
+                        </div>
+                    </div>
+
+
+          <!-- <button type="submit" class="btn btn-success">Personaldaten übertragen</button> -->
+
+
+
+
         </form>
 
       {% endif %}
 
-    </div>
 
   </div>
+  </div>
+
 
 {% endblock %}

@@ -1,0 +1,84 @@
+#
+#
+
+# EASY
+# add Arbeitgeber
+# add date for birthday selection
+# add Hausnummer zu Strasse
+# Username -> Benutzername
+# Register -> Mitarbeiterdaten uebermitteln
+
+
+# Hard
+# add "change my credentials", fix street
+# download SQL Table as .csv
+
+
+# custom error msg
+# fix drown down format
+# get copy of registration
+# 
+
+##########################################
+Terminal setup
+virtualenv django_env
+
+
+Basic setup:
+
+# Prep
+
+# Setup
+django-admin startproject projectname
+cd projectname
+django-admin startapp appname
+
+# in settings.py
+# edit: add appname in installed apps
+# edit: add dirs in two places (specify)
+
+# make migrations
+python manage.py migrate
+python manage.py makemigrations appname
+i.g. python manage.py makemigrations basic_app
+python manage.py migrate
+
+
+
+# Test server locally
+python manage.py runserver
+
+
+# add fields to database
+fix in models.py and in forms.py
+python manage.py migrate # for safety, mostly will return nothing
+python manage.py makemigrations basic_app
+python manage.py migrate
+
+
+# delete fields to database
+# important: removing fieldsis only stand alone possible, so do step by step and run own migrations, don’t add and remove stuff
+fix in models.py and in forms.py
+python manage.py migrate # for safety, mostly will return nothing
+python manage.py makemigrations basic_app
+python manage.py migrate
+
+
+
+# Deploy to git hub
+git init
+git add .
+git commit -m "Admin setup"
+git remote add origin https://github.com/spyglassventures/sgv-django.git
+git push origin master
+
+
+# Deploy: Option 1: Heroku
+you need procfile
+you need requirements.txt
+you need to fix static files, also use right load in html
+
+
+python manage.py migrate
+python manage.py makemigrations basic_app
+python manage.py migrate
